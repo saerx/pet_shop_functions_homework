@@ -23,3 +23,10 @@ def get_pets_by_breed(shop, breed):
        if pet["breed"] == breed:
            breed_matches.append(pet)
     return breed_matches
+
+def find_pet_by_name(shop, name):
+    found_pet = None
+    for pet in shop["pets"]:
+        if pet["name"] == name:
+            found_pet = pet
+    return found_pet
