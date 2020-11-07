@@ -44,3 +44,9 @@ def get_customer_cash(human):
 
 def remove_customer_cash(human, payment):
     human["cash"] -= payment
+
+def get_customer_pet_count(human):
+    return len(human["pets"])
+
+def add_pet_to_customer(human, pet):
+    human["pets"].append(pet)
