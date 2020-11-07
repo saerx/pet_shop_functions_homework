@@ -50,3 +50,12 @@ def get_customer_pet_count(human):
 
 def add_pet_to_customer(human, pet):
     human["pets"].append(pet)
+
+    # --- OPTIONAL ---
+
+def customer_can_afford_pet(human, pet):
+    if get_customer_cash(human) >= pet["price"]:
+        return True
+    else:
+        return False
+
