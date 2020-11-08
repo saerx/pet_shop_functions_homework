@@ -48,8 +48,8 @@ def remove_customer_cash(human, payment):
 def get_customer_pet_count(human):
     return len(human["pets"])
 
-def add_pet_to_customer(human, pet):
-    human["pets"].append(pet)
+def add_pet_to_customer(human, name):
+    human["pets"].append(name)
 
     # --- OPTIONAL ---
 
@@ -59,3 +59,24 @@ def customer_can_afford_pet(human, pet):
     else:
         return False
 
+ # These are 'integration' tests so we want multiple asserts.
+    # If one fails the entire test should fail
+
+def sell_pet_to_customer(shop, name, human):
+    if name == None:
+        print("Pet does not exist")
+    else:
+        if customer_can_afford_pet(human, name) == False:
+            print("Insufficient Funds")
+        else:
+            pet_cost = name["price"]
+            remove_customer_cash(human, pet_cost)
+            add_or_remove_cash(shop, pet_cost)
+            add_pet_to_customer(human, name)
+            remove_pet_by_name(shop, name)
+            increase_pets_sold(shop, 1)
+            
+
+
+
+    
