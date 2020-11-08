@@ -42,6 +42,8 @@ def find_pet_by_name(shop, name):
 
 #9. Remove pet by name
 def remove_pet_by_name(shop, name):
+    # shop["pets"].remove(find_pet_by_name(shop,name))
+    # the above didn't work and I don't understand why
     for pet in shop["pets"]:
         if pet["name"] == name:
             shop["pets"].remove(pet)
@@ -80,15 +82,19 @@ def customer_can_afford_pet(human, pet):
 
 #16. Sell pet to customer
 def sell_pet_to_customer(shop, name, human):
+    # Checks if pet exists
     if name == None:
         print("Pet does not exist")
+    # Checks if customer can afford pet
     else:
         if customer_can_afford_pet(human, name) == False:
             print("Insufficient Funds")
         else:
+        # Moves money from customer to shop
             pet_cost = name["price"]
             remove_customer_cash(human, pet_cost)
             add_or_remove_cash(shop, pet_cost)
+        #Moves pet from shop to customer
             add_pet_to_customer(human, name)
             remove_pet_by_name(shop, name)
             increase_pets_sold(shop, 1)
