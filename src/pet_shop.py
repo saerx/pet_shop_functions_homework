@@ -42,7 +42,8 @@ def find_pet_by_name(shop, name):
 
 #9. Remove pet by name
 def remove_pet_by_name(shop, name):
-    # shop["pets"].remove(find_pet_by_name(shop,name))
+    # pet_to_delete = find_pet_by_name(shop,name)
+    # shop["pets"].remove(pet_to_delete)
     # the above didn't work and I don't understand why
     for pet in shop["pets"]:
         if pet["name"] == name:
